@@ -77,7 +77,7 @@ class Notification(models.Model):
     
     
 class Receipt(models.Model):
-    receipt_date=models.DateTimeField()
+    receipt_date=models.DateTimeField(auto_now=True)
     transaction=models.ForeignKey("Transaction", on_delete=models.CASCADE,related_name="Receipt_transaction")
     receipt_file=models.FileField()
     
