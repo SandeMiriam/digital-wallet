@@ -57,13 +57,3 @@ class TransactionAdmin(admin.ModelAdmin):
     search_fields=("date","amount","customer",)
 admin.site.register(Transaction,TransactionAdmin)
 
-# admin.site.register(Wallet,WalletAdmin)
-# admin.site.register(Account,AccountAdmin)
-# admin.site.register(Transaction,TransactionAdmin)
-# admin.site.register(Card,CardAdmin,)
-# admin.site.register(Thirdparty,ThirdpartyAdmin,)
-# admin.site.register(Notification,NotificationAdmin,)
-# admin.site.register(Loan,LoanAdmin)
-# admin.site.register(Reward,RewardAdmin,)
-# admin.site.register(Currency,CurrencyAdmin,)
-# admin.site.register(Receipt,RecieptAdmin)
