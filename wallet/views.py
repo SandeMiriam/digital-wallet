@@ -1,12 +1,24 @@
-from django .shortcuts import render
+from urllib import request
+from django .shortcuts import redirect, render
+
+from wallet.models import Customer
 
 from .forms import AccountForm, CardForm, CurrencyForm, CustomerRegistrationForm, NotificationForm, RecieptForm, RewardForm, ThirdpartyForm, TransactionForm, Walletform
 
 # Create your views here.
 def register_customer(request):
-    form=CustomerRegistrationForm()
-    return render (request,"wallet/register_customer.html", {'form':form})
+    if request.method=="POST":
+        form=CustomerRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form=CustomerRegistrationForm()
+    return render(request,"wallet/register_customer.html",{"form":form})
 
+def list_customer(request):
+    customer=Customer.objects.all()
+    return render(request,"wallet/customer_list.html",{"customer":customer})
+    
 def register_currency(request):
     form=CurrencyForm()
     return render (request,"wallet/register_currency.html",{'form':form})
@@ -42,5 +54,4 @@ def register_reciept(request):
 def register_reward(request):
     form=RewardForm()
     return render (request,"wallet/register_reward.html",{'form':form})
-
 

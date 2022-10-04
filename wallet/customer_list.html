@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>customer_list</title>
+</head>
+<table>
+    <th>
+    <td>First_Name</td>
+    <td>emails</td>
+    <td>Age</td>
+    </th>
+    
+    {%for customer in customers%}
+    <tr>
+    <td>{{customer.First_Name}}</td>
+    <td>{{customer.email}}</td>
+    <td>{{customer.age}}</td>
+    </th>
+    {%endfor%}
+    </table>
+
+    <th>
+
+    <td>view profile</td> 
+    </th>
+
+    {%for customer in customers%}
+    <td>       </td>
+    
+
+
+    <td><a href="{%url"customer_profile" id="customer.id%}"> view profile</a>
+    
+</html>
